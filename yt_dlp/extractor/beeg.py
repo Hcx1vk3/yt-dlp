@@ -79,7 +79,7 @@ class BeegIE(InfoExtractor):
         return {
             'id': video_id,
             'display_id': first_fact.get('id'),
-            'title': traverse_obj(video, ('file', 'stuff', 'sf_name')),
+            'title': traverse_obj(video, ('file', 'data', 0, 'cd_value')),
             'description': traverse_obj(video, ('file', 'stuff', 'sf_story')),
             'timestamp': unified_timestamp(first_fact.get('fc_created')),
             'duration': int_or_none(traverse_obj(video, ('file', 'fl_duration'))),
